@@ -1,9 +1,9 @@
 package com.svlugovoy.contactlist.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.persistence.*;
-
 import java.time.LocalDate;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -21,9 +21,11 @@ public class Contact {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
+    @JsonProperty("firstname")
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
+    @JsonProperty("lastname")
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
@@ -42,6 +44,7 @@ public class Contact {
 
     private String country;
 
+    @JsonProperty("image")
     @Column(name = "image_url")
     private String imageUrl;
 
