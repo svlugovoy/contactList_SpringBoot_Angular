@@ -6,7 +6,7 @@ export class Contact {
   email?: string;
   phone: string;
   dob?: string;
-  picture?: string = '/assets/images/profile.png';
+  image?: string = '/assets/images/profile.png';
   city?: string;
   state?: string;
   country?: string;

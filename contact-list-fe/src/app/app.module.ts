@@ -11,6 +11,10 @@ import { ContactAddComponent } from './components/contact-add/contact-add.compon
 import { ContactEditComponent } from './components/contact-edit/contact-edit.component';
 import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
 import { HomeComponent } from './components/home/home.component';
+import { FullnamePipe } from './pipe/fullname.pipe';
+import {ContactService} from "./service/contact.service";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,13 +26,17 @@ import { HomeComponent } from './components/home/home.component';
     ContactAddComponent,
     ContactEditComponent,
     ContactDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    FullnamePipe
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
