@@ -8,6 +8,7 @@ import {ContactEditTdfComponent} from "./components/contact-edit-tdf/contact-edi
 import {ContactEditRfComponent} from "./components/contact-edit-rf/contact-edit-rf.component";
 import {ContactAddRfComponent} from "./components/contact-add-rf/contact-add-rf.component";
 import {ChangeColorComponent} from "./components/demo/change-color/change-color.component";
+import {EeParentComponent} from "./components/demo/ee-parent/ee-parent.component";
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'change-color',
     component: ChangeColorComponent
+  },
+  {
+    path: 'event-emit',
+    component: EeParentComponent
   }
 ];
 

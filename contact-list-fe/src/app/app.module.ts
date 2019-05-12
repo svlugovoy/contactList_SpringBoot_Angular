@@ -19,6 +19,8 @@ import { ContactEditRfComponent } from './components/contact-edit-rf/contact-edi
 import { ContactEditTdfComponent } from './components/contact-edit-tdf/contact-edit-tdf.component';
 import { AgePipe } from './pipe/age.pipe';
 import { ChangeColorComponent } from './components/demo/change-color/change-color.component';
+import { EeParentComponent } from './components/demo/ee-parent/ee-parent.component';
+import { EeChildComponent } from './components/demo/ee-child/ee-child.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ChangeColorComponent } from './components/demo/change-color/change-colo
     ContactEditRfComponent,
     ContactEditTdfComponent,
     AgePipe,
-    ChangeColorComponent
+    ChangeColorComponent,
+    EeParentComponent,
+    EeChildComponent
   ],
   imports: [
     BrowserModule,

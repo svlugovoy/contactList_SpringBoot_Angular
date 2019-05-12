@@ -1,0 +1,16 @@
+<div class="container card">
+
+  <h1>This is Parent Component</h1>
+  <hr/>
+
+  <p>Child Counter value is: {{ counter }}  </p>
+
+  <div>
+    <button class="btn btn-success" (click)="increment()">Increment from Parent</button>
+    <button class="btn btn-danger" (click)="decrement()">Decrement from Parent</button>
+    <button class="btn btn-warning" (click)="reset()">Reset from Parent</button>
+  </div>
+
+  <app-ee-child [childCounter]="counter" (valueChange)='displayCounter($event)'></app-ee-child>
+
+</div>
