@@ -7,6 +7,7 @@ import {ContactAddTdfComponent} from "./components/contact-add-tdf/contact-add-t
 import {ContactEditTdfComponent} from "./components/contact-edit-tdf/contact-edit-tdf.component";
 import {ContactEditRfComponent} from "./components/contact-edit-rf/contact-edit-rf.component";
 import {ContactAddRfComponent} from "./components/contact-add-rf/contact-add-rf.component";
+import {ChangeColorComponent} from "./components/demo/change-color/change-color.component";
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'edit-contact-rf/:id',
     component: ContactEditRfComponent
+  },
+  {
+    path: 'change-color',
+    component: ChangeColorComponent
   }
 ];
 

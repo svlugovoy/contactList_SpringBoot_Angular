@@ -18,6 +18,7 @@ import { ContactAddRfComponent } from './components/contact-add-rf/contact-add-r
 import { ContactEditRfComponent } from './components/contact-edit-rf/contact-edit-rf.component';
 import { ContactEditTdfComponent } from './components/contact-edit-tdf/contact-edit-tdf.component';
 import { AgePipe } from './pipe/age.pipe';
+import { ChangeColorComponent } from './components/demo/change-color/change-color.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AgePipe } from './pipe/age.pipe';
     ContactAddRfComponent,
     ContactEditRfComponent,
     ContactEditTdfComponent,
-    AgePipe
+    AgePipe,
+    ChangeColorComponent
   ],
   imports: [
     BrowserModule,
