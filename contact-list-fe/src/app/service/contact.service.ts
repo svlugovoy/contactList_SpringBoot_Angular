@@ -20,4 +20,21 @@ export class ContactService {
     return this.http.get(baseUrl).map(resp => resp as Contact[]);
   }
 
+  getContactDetails(id: number): Observable<Contact> {
+    return this.http.get(baseUrl + id).map(data => data as Contact);
+  }
+
+  deleteContact(id: number): Observable<any> {
+    return this.http.delete(baseUrl + id);
+  }
+
+  addNewContact(contact: Contact): Observable<Contact> {
+    return this.http.post(baseUrl, contact).map(data => data as Contact);
+  }
+
+  updateContact(contact: Contact): Observable<Contact> {
+    return this.http.put(baseUrl + contact.id, contact).map(data => data as Contact);
+  }
+
+
 }

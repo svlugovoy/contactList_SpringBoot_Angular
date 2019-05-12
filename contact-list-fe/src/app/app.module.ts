@@ -7,14 +7,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LeftMenuComponent } from './components/left-menu/left-menu.component';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
-import { ContactAddComponent } from './components/contact-add/contact-add.component';
-import { ContactEditComponent } from './components/contact-edit/contact-edit.component';
 import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
 import { HomeComponent } from './components/home/home.component';
 import { FullnamePipe } from './pipe/fullname.pipe';
 import {ContactService} from "./service/contact.service";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ContactAddTdfComponent } from './components/contact-add-tdf/contact-add-tdf.component';
+import { ContactAddRfComponent } from './components/contact-add-rf/contact-add-rf.component';
+import { ContactEditRfComponent } from './components/contact-edit-rf/contact-edit-rf.component';
+import { ContactEditTdfComponent } from './components/contact-edit-tdf/contact-edit-tdf.component';
+import { AgePipe } from './pipe/age.pipe';
 
 @NgModule({
   declarations: [
@@ -23,11 +26,14 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     FooterComponent,
     LeftMenuComponent,
     ContactListComponent,
-    ContactAddComponent,
-    ContactEditComponent,
     ContactDetailsComponent,
     HomeComponent,
-    FullnamePipe
+    FullnamePipe,
+    ContactAddTdfComponent,
+    ContactAddRfComponent,
+    ContactEditRfComponent,
+    ContactEditTdfComponent,
+    AgePipe
   ],
   imports: [
     BrowserModule,

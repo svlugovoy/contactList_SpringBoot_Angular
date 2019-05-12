@@ -4,15 +4,23 @@
 <div class="list-group">
 
   <div *ngFor="let c of contacts" class="list-group-item">
+
     <div class="row">
+
       <div class="col-sm-4">
         <img [src]="c.image" alt="" style="height: 100px;">
       </div>
+
       <div class="col-sm-8">
         <h4>{{ c | fullname }}</h4>
         <p>{{ c.city }} {{ c.country }}</p>
         <p>{{ c.phone }}</p>
+
+        <button class="btn btn-primary" [routerLink]="['/contact-details', c.id]">Show more info</button>
+
       </div>
+
     </div>
+
   </div>
 </div>
