@@ -13,7 +13,7 @@ export class FullnamePipe implements PipeTransform {
     if(!contact) {
       return '';
     }
-    let title = contact.gender==='Male' ? 'Mr. ' : 'Ms. ';
+    let title = contact.gender==='MALE' ? 'Mr. ' : 'Ms. ';
 
     return title + contact.firstname + ' ' + contact.lastname;
   }

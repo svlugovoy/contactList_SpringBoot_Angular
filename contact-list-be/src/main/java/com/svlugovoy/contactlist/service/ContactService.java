@@ -17,7 +17,7 @@ public class ContactService {
     }
 
     public List<Contact> getAllContacts(){
-        return contactRepository.findAll();
+        return contactRepository.findAllIdDesc();
     }
 
     public Optional<Contact> getContactById(Long id){
@@ -35,8 +35,8 @@ public class ContactService {
     }
 
     public Contact updateContact(Contact contact) {
-        Contact updated = contactRepository.findById(contact.getId())
+        Contact contactInDb = contactRepository.findById(contact.getId())
                 .orElseThrow(() -> new RuntimeException("Contact with specified ID not found in database"));
-        return contactRepository.save(updated);
+        return contactRepository.save(contact);
     }
 }

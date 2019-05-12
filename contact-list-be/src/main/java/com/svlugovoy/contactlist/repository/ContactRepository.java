@@ -13,6 +13,9 @@ public interface ContactRepository extends JpaRepository<Contact, Long> {
 
     public List<Contact> findByCity(String city);
 
+    @Query("select c from Contact c order by c.id desc")
+    public List<Contact> findAllIdDesc();
+
     @Query("select c from Contact c where c.country = :country")
     public List<Contact> queryContactsFromCountry(@Param("country") String country);
 
