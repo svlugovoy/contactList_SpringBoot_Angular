@@ -16,6 +16,19 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- jacoco properties -->
+        <jacoco.minimumInstructionCoverage>1.000</jacoco.minimumInstructionCoverage>
+        <jacoco.minimumLineCoverage>1.000</jacoco.minimumLineCoverage>
+        <jacoco.minimumMethodCoverage>1.000</jacoco.minimumMethodCoverage>
+        <jacoco.minimumClassCoverage>1.000</jacoco.minimumClassCoverage>
+        <jacoco.minimumBranchCoverage>1.000</jacoco.minimumBranchCoverage>
+        <jacoco.maximumComplexityCount>0.000</jacoco.maximumComplexityCount>
+        <jacoco.maximumMethodMissedCount>0.00</jacoco.maximumMethodMissedCount>
+        <jacoco.maximumClassMissedCount>0.00</jacoco.maximumClassMissedCount>
     </properties>
 
     <dependencies>
@@ -60,6 +73,101 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.2</version>
+
+                <configuration>
+                    <excludes>
+                        <exclude>**/ContactListBeApplication.*</exclude>
+                        <!--Remove the exclude when service will be covered-->
+                        <exclude>com/svlugovoy/contactlist/**/*</exclude>
+                    </excludes>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>jacoco-prepare-agent</id>
+                        <phase>process-test-classes</phase>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <!-- attached to Maven test phase -->
+                    <execution>
+                        <id>jacoco-report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <!-- default target/site/jacoco/* -->
+                        <configuration>
+                            <outputDirectory>target/jacoco-report</outputDirectory>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>jacoco-check</id>
+                        <!-- default phase verify -->
+                        <phase>test</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <haltOnFailure>true</haltOnFailure>
+                            <rules>
+                                <rule>
+                                    <element>BUNDLE</element>
+                                    <limits>
+                                        <limit>
+                                            <counter>INSTRUCTION</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>${jacoco.minimumInstructionCoverage}</minimum>
+                                        </limit>
+                                        <limit>
+                                            <counter>LINE</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>${jacoco.minimumLineCoverage}</minimum>
+                                        </limit>
+                                        <limit>
+                                            <counter>METHOD</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>${jacoco.minimumMethodCoverage}</minimum>
+                                        </limit>
+                                        <limit>
+                                            <counter>CLASS</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>${jacoco.minimumClassCoverage}</minimum>
+                                        </limit>
+                                        <limit>
+                                            <counter>BRANCH</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>${jacoco.minimumBranchCoverage}</minimum>
+                                        </limit>
+                                        <limit>
+                                            <counter>COMPLEXITY</counter>
+                                            <value>MISSEDCOUNT</value>
+                                            <maximum>${jacoco.maximumComplexityCount}</maximum>
+                                        </limit>
+                                        <limit>
+                                            <counter>METHOD</counter>
+                                            <value>MISSEDCOUNT</value>
+                                            <maximum>${jacoco.maximumMethodMissedCount}</maximum>
+                                        </limit>
+                                        <limit>
+                                            <counter>CLASS</counter>
+                                            <value>MISSEDCOUNT</value>
+                                            <maximum>${jacoco.maximumClassMissedCount}</maximum>
+                                        </limit>
+                                    </limits>
+                                </rule>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
