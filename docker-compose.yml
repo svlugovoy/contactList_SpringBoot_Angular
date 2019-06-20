@@ -1,0 +1,26 @@
+version: '3'
+services:
+  nginx:
+    container_name: contact-list-fe
+    build: contact-list-fe/
+    image: svlugovoy/contact-list-fe:latest
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - app
+
+  app:
+    container_name: contact-list-be
+    build: contact-list-be/
+    image: svlugovoy/contact-list-be:latest
+    restart: always
+    ports:
+      - 8080:8080
+
+
+
+#docker-compose build
+#docker-compose up -d
+#docker-compose down
+#docker-compose down --rmi all
