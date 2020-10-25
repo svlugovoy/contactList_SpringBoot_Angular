@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 // npm install rxjs-compat
 
-const baseUrl = 'http://localhost:8080/api/v1/contacts/';
+const baseUrl = 'http://ec2-3-126-103-227.eu-central-1.compute.amazonaws.com:8080/api/v1/contacts/';
 
 @Injectable({
   providedIn: 'root'

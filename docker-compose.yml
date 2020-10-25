@@ -1,19 +1,9 @@
 version: '3'
 services:
-  nginx:
-    container_name: contact-list-fe
-    build: contact-list-fe/
-    image: svlugovoy/contact-list-fe:latest
-    restart: always
-    ports:
-      - 80:80
-    depends_on:
-      - app
-
   app:
     container_name: contact-list-be
     build: contact-list-be/
-    image: svlugovoy/contact-list-be:latest
+    image: svlugovoy/contact-list-be:1.2
     restart: always
     ports:
       - 8080:8080
@@ -24,3 +14,19 @@ services:
 #docker-compose up -d
 #docker-compose down
 #docker-compose down --rmi all
+
+
+
+#! /bin/bash
+  sudo yum update -y
+  sudo yum install -y docker
+  sudo usermod -a -G docker ec2-user
+  sudo curl -L https://github.com/docker/compose/releases/download/1.20.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+  sudo chmod +x /usr/local/bin/docker-compose
+  sudo service docker start
+
+  mkdir /opt/contacts-app && cd /opt/contacts-app
+
+  aws s3 cp s3://svl-docker-files/docker-compose.yml /opt/contacts-app
+
+  docker-compose up -d

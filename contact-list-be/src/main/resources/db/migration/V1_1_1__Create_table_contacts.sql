@@ -9,5 +9,5 @@ CREATE TABLE contacts (
  city VARCHAR(20),
  state VARCHAR(20),
  country VARCHAR(20),
- image_url VARCHAR(50),
+ image_url VARCHAR(255),
 );

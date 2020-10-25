@@ -6,7 +6,7 @@ export class Contact {
   email?: string;
   phone: string;
   dob?: string;
-  image?: string = '/assets/images/profile.png';
+  image?: string = 'https://svl-static.s3.eu-central-1.amazonaws.com/profile.png';
   city?: string;
   state?: string;
   country?: string;
